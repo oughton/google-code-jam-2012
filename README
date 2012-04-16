@@ -5,12 +5,12 @@ Performance on large datasets:
 joel-mbp:dancing joeloughton$ time python program.py
 real	0m0.049s
 user	0m0.036s
-sys	  0m0.011s
+sys	0m0.011s
 
 joel-mbp:tongues joeloughton$ time python program.py
 real	0m0.074s
 user	0m0.028s
-sys	  0m0.012s
+sys	0m0.012s
 
 joel-mbp:recycle joeloughton$ time python program1.py
 real	5m15.038s
