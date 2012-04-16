@@ -12,7 +12,7 @@ real	0m0.074s
 user	0m0.028s
 sys	0m0.012s
 
-joel-mbp:recycle joeloughton$ time python program1.py
+joel-mbp:recycle joeloughton$ time python program.py
 real	5m15.038s
 user	5m13.377s
 sys	0m1.336s

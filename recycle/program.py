@@ -1,36 +1,33 @@
-def allSameDigits(n):
+def getUniquePairsCount(n, a, b, cache):
+	pairs = 0
 	digits = str(n)
-	marker = digits[0]
 
-	for digit in digits:
-		if digit != marker:
-			return False
-	return True
+	for end in range(len(digits) - 1):
+			testDigits = digits[end + 1:] + digits[:end + 1]
+
+			if int(testDigits) < a or int(testDigits) > b:
+				continue
+
+			key1 = digits + ',' + testDigits
+			key2 = testDigits + ',' + digits
+
+			if key1 in cache or key2 in cache:
+				continue
+
+			if testDigits != digits:
+				pairs += 1
+				cache[key1] = True
+
+	return pairs
 
 def runTest(testNo, a, b):
 	count = 0
 	seen = {}
 
-	for n in range(a, b):
-		digits = str(n)
-
-		if allSameDigits(n):
-			continue
-
-		for end in range(len(digits)):
-			testDigits = digits[end + 1:] + digits[:end + 1]
-
-			# check if its already been used
-			if testDigits in seen:
-				continue
-
-			if int(testDigits) >= a and int(testDigits) <= b:
-				print(testDigits)
-				count += 1
-
-			seen[digits] = True
-
-	print('\nresult:' +  str(count))
+	for n in range(a, b + 1):
+		count += getUniquePairsCount(n, a, b, seen)
+	
+	fout.write('Case #' + str(testNo) + ': ' + str(count) + '\n')
 
 fin = open('C-large-practice.in', 'r')
 fout = open('output.txt', 'w')
@@ -41,4 +38,3 @@ for test in range(tests):
 	parts = fin.readline().split(' ')
 
 	runTest(test + 1, int(parts[0]), int(parts[1]))
-
