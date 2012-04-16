@@ -47,8 +47,6 @@ def runTest(testNo, dancers, surprising, minResult, totalScores):
 		else:
 			maxDancers += 1
 
-		# TODO: break out when no surprising are left
-
 	fout.write('Case #' + str(testNo) + ': ' + str(maxDancers) + '\n')
 
 
